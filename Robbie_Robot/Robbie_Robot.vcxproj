@@ -145,12 +145,24 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="robot_parts.h" />
+    <ClInclude Include="build_robot.h" />
+    <ClInclude Include="robot_arm.h" />
+    <ClInclude Include="robot_battery.h" />
+    <ClInclude Include="robot_head.h" />
+    <ClInclude Include="robot_locomotor.h" />
+    <ClInclude Include="robot_model.h" />
+    <ClInclude Include="robot_torso.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Robbie_Robot.cpp" />
+    <ClCompile Include="build_robot.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="robot_arm.cpp" />
+    <ClCompile Include="robot_battery.cpp" />
+    <ClCompile Include="robot_locomotor.cpp" />
+    <ClCompile Include="robot_model.cpp" />
+    <ClCompile Include="robot_torso.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

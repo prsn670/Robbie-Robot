@@ -24,7 +24,25 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="robot_parts.h">
+    <ClInclude Include="robot_model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_torso.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_head.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_arm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_locomotor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_battery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="build_robot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,7 +50,25 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Robbie_Robot.cpp">
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="robot_model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="robot_torso.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="robot_arm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="robot_locomotor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="robot_battery.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="build_robot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
