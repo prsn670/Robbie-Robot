@@ -2,10 +2,5 @@
 //
 
 #include "stdafx.h"
-
-
-int main()
-{
-    return 0;
-}
+#include "robot_parts.h"
 
