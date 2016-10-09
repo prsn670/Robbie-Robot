@@ -36,17 +36,9 @@ int Robot_model::get_part_num()
 	return part_num;
 }
 
-void Robot_model::set_model_num(int num)
-{
-	model_num = num;
-}
 
 void Robot_model::set_weight(int lbs)
 {
 	weight += lbs;
 }
 
-int Robot_model::get_model_num()
-{
-	return model_num;
-}
