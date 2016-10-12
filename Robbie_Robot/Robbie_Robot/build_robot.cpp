@@ -3,6 +3,7 @@
 #include "iostream"
 #include "store.h"
 #include "vector"
+#include "list_robot.h"
 
 using namespace std;
 
@@ -44,7 +45,8 @@ void build_base(int selection, class Store& store)//build the common data for ea
 
 	else if (selection == 3)
 	{
-		store.store_head(str, lbs, money, part, desc);
+		build_head(str, lbs, money, part, desc, store);
+		
 	}
 
 	else if (selection == 4)
@@ -58,11 +60,44 @@ void build_base(int selection, class Store& store)//build the common data for ea
 	}
 }
 
-void build_model()//collects data for model specific data
+void build_model(class Store& store)//collects data for model specific data
 {
-	int num;
+	int part, index;
+	double lbs, money;
+	string desc, name;
 	cout << "Please enter the model number: ";
-	cin >> num;
+	cin >> part;
+	cout << "Please enter a brief description of the robot model: ";
+	cin.ignore(100, '\n');
+	getline(cin, desc);
+	cout << "Please enter a name for the robot model: ";
+	getline(cin, name);
+	store.store_model(name, 0, 0, part, desc);
+	list_tor(store);
+	cout << "Please select a torso for the robot model: ";
+	cin >> index;
+	store.rob.back()->set_index(5, index);
+	list_loco(store);
+	cout << "Please select a locomotor for your model: ";
+	cin >> index;
+	store.rob.back()->set_index(4, index);
+	list_head(store);
+	cout << "Please select a head for your model: ";
+	cin >> index;
+	store.rob.back()->set_index(3, index);
+	list_batt(store);
+	cout << "Please select a battery for your model: ";
+	cin >> index;
+	store.rob.back()->set_index(2, index);
+	list_arm(store);
+	cout << "Please select an arm for your model: ";
+	cin >> index;
+	store.rob.back()->set_index(1, index); //this line and above ask for parts that make up new model
+	lbs = store.arm[store.rob.back()->get_index(1)]->get_weight() + store.batt[store.rob.back()->get_index(2)]->get_weight() + store.head[store.rob.back()->get_index(3)]->get_weight() + store.loco[store.rob.back()->get_index(4)]->get_weight() + store.tor[store.rob.back()->get_index(5)]->get_weight();
+	money = store.arm[store.rob.back()->get_index(1)]->get_cost() + store.batt[store.rob.back()->get_index(2)]->get_cost() + store.head[store.rob.back()->get_index(3)]->get_cost() + store.loco[store.rob.back()->get_index(4)]->get_cost() + store.tor[store.rob.back()->get_index(5)]->get_cost();
+	store.rob.back()->set_weight(lbs);
+	store.rob.back()->set_cost(money);
+
 }
 
 void build_arm(string str, double lbs, double money, int part, string desc, class Store& store)//collect data specific to arm
@@ -82,6 +117,11 @@ void build_battery(string str, double lbs, double money, int part, string desc, 
 	cin >> nrg;
 	store.store_batt(str, lbs, money, part, desc, nrg);
 	
+}
+
+void build_head(string str, double lbs, double money, int part, string desc, class Store& store)
+{
+	store.store_head(str, lbs, money, part, desc);
 }
 
 void build_locomotor(string str, double lbs, double money, int part, string desc, class Store& store) //collect data specific to locomotor

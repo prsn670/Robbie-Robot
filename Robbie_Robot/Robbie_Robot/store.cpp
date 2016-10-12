@@ -37,8 +37,6 @@ void Store::store_torso(string str, double lbs, double money, int part, string d
 
 void Store::store_model(string str, double lbs, double money, int part, string desc)
 {
-	/*money = (arm.back()->get_cost) + (batt.back()->get_cost) + (head.back()->get_cost) + (loco.back()->get_cost) + (tor.back()->get_cost); //calculates total cost for robot model
-	lbs = (arm.back()->get_weight) + (batt.back()->get_weight) + (head.back()->get_weight) + (loco.back()->get_weight) + (tor.back()->get_weight); //calculates total weight fo robot model
-	rob.push_back(new Robot_model(str, lbs, money, part, desc));*/
+	rob.push_back(new Robot_model(str, lbs, money, part, desc));
 	
 }

@@ -26,6 +26,7 @@ public:
 	void store_locomotor(string str, double lbs, double money, int part, string desc, int speed, int pow);
 	void store_torso(string str, double lbs, double money, int part, string desc, int amt);
 	void store_model(string str, double lbs, double money, int part, string desc);
+	
 
 	
 };

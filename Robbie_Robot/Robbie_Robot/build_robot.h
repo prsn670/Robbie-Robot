@@ -11,11 +11,13 @@ using namespace std;
 void build_base(int selection, class Store &store);//build the common data for each component
 
 
-void build_model();//collect data specific to model
+void build_model(class Store& store);//collect data specific to model
 
 void build_arm(string str, double lbs, double money, int part, string desc, class Store& store); //collect data specific to arm
 
 void build_battery(string str, double lbs, double money, int part, string desc, class Store& store);//collect data specific to battery
+
+void build_head(string str, double lbs, double money, int part, string desc, class Store& store);
 
 void build_locomotor(string str, double lbs, double money, int part, string desc, class Store& store); //collect data specific to locomotor
 
