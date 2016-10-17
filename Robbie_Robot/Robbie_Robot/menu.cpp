@@ -112,7 +112,7 @@ void main_menu(class Store &store)
 {
 	
 	int selection = 0;
-	while(selection != 3)
+	while(selection != 4)
 	{
 		cout << "1. Create Robot" << endl;
 		cout << "2. Browse Robots" << endl;

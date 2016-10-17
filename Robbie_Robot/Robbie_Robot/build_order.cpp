@@ -9,7 +9,8 @@ void build_order(class Store& store)
 {
 	string name, date, sa_name;
 	int ind = -1, amt;
-	bool valid = false;
+	bool valid = false, order = false;
+	char ch;
 	cout << "Please insert the name of the customer: ";
 	getline(cin, name);
 	cout << "Please enter the date of ";
@@ -19,39 +20,52 @@ void build_order(class Store& store)
 	store.ord.push_back(new Order(name, date, sa_name));
 	name.clear();
 
-	while (ind == -1)
+	while (!order)
 	{
-		cout << "Please enter the name of the model the customer would like to order: ";
-		getline(cin, name);
-		for (int i = 0; i < store.rob.size(); i++)
+		while (ind == -1)
 		{
-			if (name.compare(store.rob[i]->get_name()) == 0)
+			cout << "Please enter the name of the model the customer would like to order: ";
+			getline(cin, name);
+			for (int i = 0; i < store.rob.size(); i++)
 			{
-				ind = i;
-				break;
+				if (name.compare(store.rob[i]->get_name()) == 0)
+				{
+					ind = i;
+					break;
+				}
+			}
+			if (ind == -1)
+			{
+				cout << "Robot model not found, please enter another model" << endl << endl;
 			}
 		}
-		if (ind == -1)
+
+		while (!valid)
 		{
-			cout << "Robot model not found, please enter another model" << endl << endl;
+			cout << "Please enter the quantity the customer wants to order: ";
+			cin >> amt;
+
+			if (amt > 0)
+			{
+				valid = true;
+			}
+
+			else
+			{
+				cout << "Invalid amount, please try again" << endl << endl;
+			}
+		}
+
+		store.ord.back()->set_indices(ind, amt);
+		cout << "Ordering more? (Y/N): ";
+		cin >> ch;
+		if (tolower(ch) == 'y')
+		{
+			cin.ignore(100, '/n');
+		}
+		else if(tolower(ch) == 'n')
+		{
+			order = true;
 		}
 	}
-
-	while (!valid)
-	{
-		cout << "Please enter the quantity the customer wants to order: ";
-		cin >> amt;
-
-		if (amt > 0)
-		{
-			valid = true;
-		}
-
-		else
-		{
-			cout << "Invalid amount, please try again" << endl << endl;
-		}
-	}
-
-	store.ord.back()->set_indices(ind, amt);
 }
