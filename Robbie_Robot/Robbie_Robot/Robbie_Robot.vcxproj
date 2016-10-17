@@ -145,9 +145,11 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="build_order.h" />
     <ClInclude Include="build_robot.h" />
     <ClInclude Include="list_robot.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="order.h" />
     <ClInclude Include="robot_arm.h" />
     <ClInclude Include="robot_battery.h" />
     <ClInclude Include="robot_head.h" />
@@ -159,10 +161,12 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="build_order.cpp" />
     <ClCompile Include="build_robot.cpp" />
     <ClCompile Include="list_robot.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="order.cpp" />
     <ClCompile Include="robot_arm.cpp" />
     <ClCompile Include="robot_battery.cpp" />
     <ClCompile Include="robot_locomotor.cpp" />

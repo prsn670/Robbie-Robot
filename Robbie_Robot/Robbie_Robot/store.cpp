@@ -7,6 +7,7 @@
 #include "robot_locomotor.h"*/
 #include "store.h"
 
+
 //Stores created components and model in vector.
 
 
@@ -40,3 +41,4 @@ void Store::store_model(string str, double lbs, double money, int part, string d
 	rob.push_back(new Robot_model(str, lbs, money, part, desc));
 	
 }
+
