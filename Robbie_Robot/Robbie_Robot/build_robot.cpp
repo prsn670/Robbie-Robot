@@ -93,8 +93,8 @@ void build_model(class Store& store)//collects data for model specific data
 	cout << "Please select an arm for your model: ";
 	cin >> index;
 	store.rob.back()->set_index(1, index); //this line and above ask for parts that make up new model
-	lbs = store.arm[store.rob.back()->get_index(1)]->get_weight() + store.batt[store.rob.back()->get_index(2)]->get_weight() + store.head[store.rob.back()->get_index(3)]->get_weight() + store.loco[store.rob.back()->get_index(4)]->get_weight() + store.tor[store.rob.back()->get_index(5)]->get_weight();
-	money = store.arm[store.rob.back()->get_index(1)]->get_cost() + store.batt[store.rob.back()->get_index(2)]->get_cost() + store.head[store.rob.back()->get_index(3)]->get_cost() + store.loco[store.rob.back()->get_index(4)]->get_cost() + store.tor[store.rob.back()->get_index(5)]->get_cost();
+	lbs = store.arm[store.rob.back()->get_index(1)]->get_weight() + (store.batt[store.rob.back()->get_index(2)]->get_weight() * (store.tor[store.rob.back()->get_index(5)]->get_battery())) + store.head[store.rob.back()->get_index(3)]->get_weight() + store.loco[store.rob.back()->get_index(4)]->get_weight() + store.tor[store.rob.back()->get_index(5)]->get_weight();
+	money = store.arm[store.rob.back()->get_index(1)]->get_cost() + ((store.batt[store.rob.back()->get_index(2)]->get_cost())*(store.tor[store.rob.back()->get_index(5)]->get_battery())) + store.head[store.rob.back()->get_index(3)]->get_cost() + store.loco[store.rob.back()->get_index(4)]->get_cost() + store.tor[store.rob.back()->get_index(5)]->get_cost();
 	store.rob.back()->set_weight(lbs);
 	store.rob.back()->set_cost(money);
 

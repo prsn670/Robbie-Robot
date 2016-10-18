@@ -19,7 +19,16 @@ private:
 	
 public:
 	void set_indices(int ind, int amt);//sets the indexes for model_ind and qty
-	Order(string name, string date, string sa_name) : cust_name(name), date(date), sales_assoc(sa_name) {};
+	void set_ord_num(int num);//sets order number
+	void set_price(double cost);
+	string get_name();
+	string get_date();
+	string get_assoc();
+	int get_ord_num();
+	int get_size();//returns size of the vector model_ind
+	int get_model_index(int i);//gets index of model ordered
+	int get_qty(int i);
+	Order(string name, string date, string sa_name, double cost) : cust_name(name), date(date), sales_assoc(sa_name), price(cost) {};
 	
 };
 
