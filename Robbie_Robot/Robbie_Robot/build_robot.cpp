@@ -62,6 +62,37 @@ void build_base(int selection, class Store& store)//build the common data for ea
 
 void build_model(class Store& store)//collects data for model specific data
 {
+	if (store.arm.empty() || store.batt.empty() || store.head.empty() || store.loco.empty() || store.tor.empty())
+	{
+		if (store.arm.empty())
+		{
+			cout << "No arms have been created. Cannot create a model." << endl;
+		}
+
+		if (store.batt.empty())
+		{
+			cout << "No batteries have been created. Cannot create a model." << endl;
+		}
+
+		if (store.head.empty())
+		{
+			cout << "No heads have been created. Cannot create a model." << endl;
+		}
+
+		if (store.loco.empty())
+		{
+			cout << "No locomotors have been created. Cannot create a model." << endl;
+		}
+
+		if (store.tor.empty())
+		{
+			cout << "No torsos have been created. Cannot create a model." << endl;
+		}
+
+		cout << "Exiting to main menu" << endl << endl;
+		return;
+	}
+	
 	int part, index;
 	double lbs, money;
 	string desc, name;
@@ -93,8 +124,8 @@ void build_model(class Store& store)//collects data for model specific data
 	cout << "Please select an arm for your model: ";
 	cin >> index;
 	store.rob.back()->set_index(1, index); //this line and above ask for parts that make up new model
-	lbs = store.arm[store.rob.back()->get_index(1)]->get_weight() + store.batt[store.rob.back()->get_index(2)]->get_weight() + store.head[store.rob.back()->get_index(3)]->get_weight() + store.loco[store.rob.back()->get_index(4)]->get_weight() + store.tor[store.rob.back()->get_index(5)]->get_weight();
-	money = store.arm[store.rob.back()->get_index(1)]->get_cost() + store.batt[store.rob.back()->get_index(2)]->get_cost() + store.head[store.rob.back()->get_index(3)]->get_cost() + store.loco[store.rob.back()->get_index(4)]->get_cost() + store.tor[store.rob.back()->get_index(5)]->get_cost();
+	lbs = store.arm[store.rob.back()->get_index(1)]->get_weight() + (store.batt[store.rob.back()->get_index(2)]->get_weight() * (store.tor[store.rob.back()->get_index(5)]->get_battery())) + store.head[store.rob.back()->get_index(3)]->get_weight() + store.loco[store.rob.back()->get_index(4)]->get_weight() + store.tor[store.rob.back()->get_index(5)]->get_weight();
+	money = store.arm[store.rob.back()->get_index(1)]->get_cost() + ((store.batt[store.rob.back()->get_index(2)]->get_cost())*(store.tor[store.rob.back()->get_index(5)]->get_battery())) + store.head[store.rob.back()->get_index(3)]->get_cost() + store.loco[store.rob.back()->get_index(4)]->get_cost() + store.tor[store.rob.back()->get_index(5)]->get_cost();
 	store.rob.back()->set_weight(lbs);
 	store.rob.back()->set_cost(money);
 

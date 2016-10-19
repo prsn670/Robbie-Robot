@@ -9,7 +9,7 @@
 #include "robot_head.h"
 #include "robot_locomotor.h"
 #include "robot_torso.h"
-
+#include "order.h"
 
 class Store{
 public:
@@ -19,6 +19,8 @@ public:
 	vector<Head*> head;
 	vector<Locomotor*> loco;
 	vector<Torso*> tor;
+	vector<Order*> ord;
+	
 
 	void store_arm(string str, double lbs, double money, int part, string desc, int pow);
 	void store_batt(string str, double lbs, double money, int part, string desc, int nrg);
@@ -27,8 +29,11 @@ public:
 	void store_torso(string str, double lbs, double money, int part, string desc, int amt);
 	void store_model(string str, double lbs, double money, int part, string desc);
 	
+	
 
 	
 };
+
+
 #endif // !_STORE_H
 

@@ -3,7 +3,8 @@
 #include "iostream"
 #include "build_robot.h"
 #include "list_robot.h"
-
+#include "build_order.h"
+#include "stdexcept"
 using namespace std;
 
 
@@ -23,6 +24,13 @@ void create_part_sub(class Store &store)
 		cout << "Please make your selection: ";
 
 		cin >> selection;
+		if (!cin)
+		{
+			cin.clear();
+			cin.ignore(100, '\n');
+			selection = 0;
+
+		}
 		
 		
 
@@ -58,6 +66,13 @@ void create_menu(class Store &store)
 		cout << "Please make your selection: ";
 
 		cin >> selection;
+
+		if (!cin)
+		{
+			cin.clear();
+			cin.ignore(100, '\n');
+			selection = 0;
+		}
 		
 
 		if (selection == 1)
@@ -112,14 +127,22 @@ void main_menu(class Store &store)
 {
 	
 	int selection = 0;
-	while(selection != 3)
+	while(selection != 5)
 	{
-		cout << "1. Create" << endl;
-		cout << "2. Order" << endl;
-		cout << "3. Quit" << endl;
+		cout << "1. Create Robot" << endl;
+		cout << "2. Browse Robots" << endl;
+		cout << "3. Create Order" << endl;
+		cout << "4. List All Orders" << endl;
+		cout << "5. Quit" << endl;
 
 		cin >> selection;
-
+		if (!cin)
+		{
+			cin.clear();
+			cin.ignore(100, '\n');
+			selection = 0;
+		}
+		
 		if (selection == 1)
 		{
 			create_menu(store);
@@ -132,6 +155,16 @@ void main_menu(class Store &store)
 
 		else if (selection == 3)
 		{
+			build_order(store);
+		}
+
+		else if (selection == 4)
+		{
+			list_all_order(store);
+		}
+
+		else if (selection == 5)
+		{
 			return;
 		}
 		else if (selection == 99)//easter egg creates 2 parts of each type
@@ -141,11 +174,16 @@ void main_menu(class Store &store)
 			build_head("head1", 5, 30, 11, "Another part", store);
 			build_head("head2", 5, 30, 11, "head-ass", store);
 			build_battery("battery1", 1, 25, 58, "good battery", store);
-			build_battery("battery2", 2, 40, 58, "beter battery", store);
+			build_battery("battery2", 2, 40, 58, "better battery", store);
 			build_locomotor("loco1", 15, 50, 88, "likes to move it move it", store);
 			build_locomotor("loco2", 15, 50, 39, "snorlax", store);
 			build_torso("Chest", 30, 100, 50, "Upper body", store);
 			build_torso("Torso2", 30, 150, 78, "Upper body", store);
+		}
+
+		else
+		{
+			cout << "Invalid entry, please try again" << endl << endl;
 		}
 	}
 }

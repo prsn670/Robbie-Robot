@@ -54,6 +54,12 @@
     <ClInclude Include="list_robot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="order.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="build_order.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -87,6 +93,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="list_robot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="order.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="build_order.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
