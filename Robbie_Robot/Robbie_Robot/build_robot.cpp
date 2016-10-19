@@ -62,6 +62,37 @@ void build_base(int selection, class Store& store)//build the common data for ea
 
 void build_model(class Store& store)//collects data for model specific data
 {
+	if (store.arm.empty() || store.batt.empty() || store.head.empty() || store.loco.empty() || store.tor.empty())
+	{
+		if (store.arm.empty())
+		{
+			cout << "No arms have been created. Cannot create a model." << endl;
+		}
+
+		if (store.batt.empty())
+		{
+			cout << "No batteries have been created. Cannot create a model." << endl;
+		}
+
+		if (store.head.empty())
+		{
+			cout << "No heads have been created. Cannot create a model." << endl;
+		}
+
+		if (store.loco.empty())
+		{
+			cout << "No locomotors have been created. Cannot create a model." << endl;
+		}
+
+		if (store.tor.empty())
+		{
+			cout << "No torsos have been created. Cannot create a model." << endl;
+		}
+
+		cout << "Exiting to main menu" << endl << endl;
+		return;
+	}
+	
 	int part, index;
 	double lbs, money;
 	string desc, name;

@@ -8,14 +8,21 @@ using namespace std;
 
 void build_order(class Store& store)
 {
+	if (store.rob.empty())
+	{
+		cout << "No models are available for purchase as none have been built into the system." << endl;
+		cout << "Returning to main menu." << endl << endl;
+		return;
+	}
+	
 	string name, date, sa_name;
-	int ind = -1, amt;
+	int ind = -1, amt, first = 0;
 	bool valid = false, order = false;
 	char ch;
 	cin.ignore(100, '\n');
 	cout << "Please insert the name of the customer: ";
 	getline(cin, name);
-	cout << "Please enter the date of ";
+	cout << "Please enter the date of purchase: ";
 	getline(cin, date);
 	cout << "Please enter the name of the sales associate creating the order: ";
 	getline(cin, sa_name);
@@ -25,11 +32,17 @@ void build_order(class Store& store)
 
 	while (!order)
 	{
-		ch = 'a';
+		ch = 'y';
+		valid = false;
 		while (ind == -1)
 		{
 			cout << "Please enter the name of the model the customer would like to order: ";
+			if (first != 0)//need ignore here after asking if customer would like to order more
+			{
+				cin.ignore(100, '\n');
+			}
 			getline(cin, name);
+			ch = 'a';
 			for (int i = 0; i < store.rob.size(); i++)
 			{
 				if (name.compare(store.rob[i]->get_name()) == 0)
@@ -69,7 +82,9 @@ void build_order(class Store& store)
 			cin >> ch;
 			if (tolower(ch) == 'y')
 			{
-				cin.ignore(100, '/n');
+				order = false;
+				ind = -1;
+				first = 1;
 			}
 			else if (tolower(ch) == 'n')
 			{

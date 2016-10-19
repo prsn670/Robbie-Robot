@@ -28,6 +28,7 @@ public:
 	int get_size();//returns size of the vector model_ind
 	int get_model_index(int i);//gets index of model ordered
 	int get_qty(int i);
+	double get_price();
 	Order(string name, string date, string sa_name, double cost) : cust_name(name), date(date), sales_assoc(sa_name), price(cost) {};
 	
 };

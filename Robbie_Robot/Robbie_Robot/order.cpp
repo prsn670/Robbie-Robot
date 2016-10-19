@@ -55,3 +55,8 @@ int Order::get_qty(int i)
 {
 	return qty[i];
 }
+
+double Order::get_price()
+{
+	return price;
+}
